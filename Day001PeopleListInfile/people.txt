@@ -1,0 +1,8 @@
+Jim;20;KDC
+Tom;25;DNV
+Amy;40;OTC
+Terry;20;OLK
+Wendy;40;TOC
+Terry Simpson;56;Springfield
+Stewie Griffin;1;Quohog
+Sammy King;0;2kd
