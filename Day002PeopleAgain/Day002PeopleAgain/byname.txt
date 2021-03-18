@@ -1,0 +1,11 @@
+Student;Candy;24;Math;3.9
+Student;Janny;32;Math;2.9
+Person;Jerry;23
+Person;Jerry;0
+Teacher;Larry;51;Physics;22
+Student;Martin;31;Math;4
+Student;Mary;34;Nursing;3.8
+Student;Pam;29;Math;3.4
+Teacher;Randy;66;PhysEd;33
+Student;Sam;24;Math;3.3
+Person;Timmy;44
