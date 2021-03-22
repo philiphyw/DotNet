@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{939AE056-9045-47DB-B1CF-4DEBEDBF0DAD}</ProjectGuid>
+    <ProjectGuid>{F28FBE3F-C98C-4016-91F2-4B69C6E90602}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Day003FirstIndexer</RootNamespace>
-    <AssemblyName>Day003FirstIndexer</AssemblyName>
+    <RootNamespace>DayMidtermMulti</RootNamespace>
+    <AssemblyName>DayMidtermMulti</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,8 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Airport.cs" />
+    <Compile Include="InvalidDataException.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SuperFib.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

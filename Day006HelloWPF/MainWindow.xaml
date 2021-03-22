@@ -1,0 +1,17 @@
+﻿<Window x:Class="Day006HelloWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Day006HelloWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="150" Width="320" ResizeMode="NoResize">
+    <Grid>
+        <Label x:Name="label" Content="What's your name?" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="150,3,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="150" Text="" TextChanged="tbName_TextChanged"/>
+        <Button x:Name="btHelloByLabel" Click="SayHelloLabelButton_Click" Content="Say Hello(Label)" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="btHelloByMsgBox" Click="SayHelloMsgBoxButton_Click" Content="Say Hello(MsgBox)" HorizontalAlignment="Left" Margin="194,49,0,0" VerticalAlignment="Top" Width="110" />
+        <Label x:Name="lblOutput" Content="..." HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="300"/>
+
+    </Grid>
+</Window>

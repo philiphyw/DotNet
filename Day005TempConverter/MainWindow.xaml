@@ -1,0 +1,29 @@
+﻿<Window x:Class="Day005TempConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Day005TempConverter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="400">
+    <Grid>
+        <Label x:Name="label" Content="Input" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbInput" HorizontalAlignment="Left" Height="23" Margin="163,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" TextChanged="tbInput_TextChanged"/>
+        <Label x:Name="label_Copy" Content="Input Scale" HorizontalAlignment="Left" Margin="50,42,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="label_Copy1" Content="Output Scale" HorizontalAlignment="Left" Margin="270,42,0,0" VerticalAlignment="Top" Width="80"/>
+        <StackPanel x:Name="spInputScales" HorizontalAlignment="Left" Height="60" Margin="39,73,0,0" VerticalAlignment="Top" Width="100" >
+            <RadioButton x:Name="rbInputScalesCel" Content="Celcius" DataContext="CEL" IsChecked="True" Checked="ScaleRadioButton_Checked"/>
+            <RadioButton x:Name="rbInputScalesFah" Content="Fahernheit" DataContext="FAH" Checked="ScaleRadioButton_Checked"/>
+            <RadioButton x:Name="rbInputScalesKev" Content="Kevin" DataContext="KEV" Checked="ScaleRadioButton_Checked"/>
+        </StackPanel>
+        <StackPanel x:Name="spOutputScales" HorizontalAlignment="Left" Height="60" Margin="262,68,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.928,0.398" >
+            <RadioButton x:Name="rbOutputScalesCel" Content="Celcius" DataContext="CEL" Checked="ScaleRadioButton_Checked"/>
+            <RadioButton x:Name="rbOutputScalesFah" Content="Fahernheit" DataContext="FAH" IsChecked="True" Checked="ScaleRadioButton_Checked"/>
+            <RadioButton x:Name="rbOutputScalesKev" Content="Kevin" DataContext="KEV" Checked="ScaleRadioButton_Checked"/>
+        </StackPanel>
+        <Label x:Name="label_Copy2" Content="Output" HorizontalAlignment="Left" Margin="110,147,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbOutput" HorizontalAlignment="Left" Height="23" Margin="163,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="lblStatus" Content="..." HorizontalAlignment="Left" Margin="10,186,0,0" VerticalAlignment="Top" Width="372" Height="27"/>
+
+    </Grid>
+</Window>

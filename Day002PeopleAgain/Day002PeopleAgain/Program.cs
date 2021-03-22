@@ -143,6 +143,11 @@ namespace Day002PeopleAgain
             return resultList;
         }
 
+        private static List<Student> GetPersonByLinq(string typeName) {
+            var list = _personList.Where(p => p is Student).Cast<Student>().ToList();
+            return list;
+        }
+
 
 
 
@@ -201,29 +206,38 @@ namespace Day002PeopleAgain
 
 
             //get average , median  and standard deviation of GPA
-            List < Student > stuList = new List<Student>();
-            pList.ForEach(p => stuList.Add((Student)p));
-            List<double> gpaList = new List<double>();
-            stuList.ForEach(s => gpaList.Add(s.GPA));
+            List<Student> stuList = _personList.Where(p => p is Student).Cast<Student>().ToList();
+            double gpaSum = stuList.Sum(s => s.GPA);
+            double gpaAvg = stuList.Average(s => s.GPA);
+            double gpaMax = stuList.Max(s => s.GPA);
+            double gpaMin = stuList.Min(s => s.GPA);
+            //GPA Average
+            Console.WriteLine($"The average of student's GPA: {gpaAvg:0.#}");//show 1 decimal places.
 
+            //GPA Median, TODO: review the definition/calcuation of median 
+            //Sort the list before identify which value is the median
+            stuList = stuList.OrderBy(s => s.GPA).ToList();
+            
+            stuList.ForEach(s => Console.WriteLine(s.ToDataString()));
+            double median;
+            int middleIndex = stuList.Count / 2;
+            if (stuList.Count() % 2 == 1)//odd number of student
+            {
+                median = stuList[middleIndex].GPA;
+            } else //even number
+            {
+                median = (stuList[middleIndex -1].GPA + stuList[middleIndex].GPA)/2;
+            }
 
-
-
-            double avgGPA = gpaList.Average();
-            double minGPA = gpaList.Min();
-            double maxGPA = gpaList.Max();
-            Console.WriteLine($"The average student's GPA: {avgGPA}");
-            Console.WriteLine($"The median student's GPA: { (minGPA+maxGPA)/2}");
+            Console.WriteLine($"The median of student's GPA: {median:0.##}");//show 2 decimal places.
 
             //standard deviation ....so complicate..
-            double sum = gpaList.Sum(v => (v - avgGPA) * (v - avgGPA));
-            double denominator = gpaList.Count - 1;
-            double sdGPA = denominator > 0.0 ? Math.Sqrt(sum / denominator) : -1;
-            sdGPA = Math.Round(sdGPA,2);
+            double gpaSumOfSqrt = stuList.Sum(s => (s.GPA - gpaAvg) * (s.GPA - gpaAvg));
+            double sdGPA = Math.Sqrt(gpaSumOfSqrt / stuList.Count);
 
-            Console.WriteLine($"The standard deviation of student's GPA: { sdGPA}");
+            Console.WriteLine($"The standard deviation of student's GPA: {sdGPA:0.###}");//show 3 decimal places.
 
-            //use linq to sort _personList by name and write to file ..\\..\\byname.txt
+            //use linq to sort _personList by name and write to file..\\..\\byname.txt
             Console.WriteLine();
             var SortByName = from p in _personList
                              orderby p.Name
@@ -235,6 +249,13 @@ namespace Day002PeopleAgain
 
             Console.WriteLine("Sorted person by name and wrote into the file byname.txt");
 
+
+
+            //use linq to make it simpler
+            Console.WriteLine("\nuse linq to make selection simpler\n");
+            var list = _personList.Where(p => p is Student).Cast<Student>().ToList();
+            List<Student> sortedStudent = list.OrderBy(s => s.GPA).ToList();
+            sortedStudent.ForEach(s => Console.WriteLine(s.ToDataString()));
         }
     }
 }
