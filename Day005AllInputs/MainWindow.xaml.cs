@@ -60,8 +60,10 @@ namespace Day005AllInputs
             }
             else
             {
-                Continent = comboContinent.Text;
+                Continent = comboContinent.SelectedValue.ToString();
             }
+
+
             //check select pets
             List<string> petList = new List<string>();
             if (cbCat.IsChecked == true)
@@ -77,12 +79,13 @@ namespace Day005AllInputs
                 petList.Add(cbOther.Content.ToString());
             }
 
+
             string Pets = "";
             if (petList.Count>0)
             {
                 for (int i = 0; i < petList.Count; i++)
                 {
-                    Pets += petList[i];
+                    Pets += petList[i] + ((i == petList.Count-1) ? "" : ",");
                 }
             }
 
@@ -98,10 +101,18 @@ namespace Day005AllInputs
                 return;
             }
 
+
+            
+
             string dataString  = $"{Name};{AgeStr};{Continent};{Pets};{PreferredTempStr}";
             lblStatus.Content = "Registered Successfully: " + dataString;
             File.AppendAllText("..\\..\\dataString.txt",dataString + "\n");
+
+
+           
         }
+
+       
 
 
         private void sliderPerferredTemp_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

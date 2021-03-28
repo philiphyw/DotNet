@@ -1,0 +1,26 @@
+﻿<Window x:Class="Day006IcecreamSelector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Day006IcecreamSelector"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="320" Width="400">
+    <Grid>
+        <Label x:Name="label" Content="Flavours" HorizontalAlignment="Left" Margin="60,10,0,0" VerticalAlignment="Top" Width="55"/>
+        <ListBox x:Name="lbFlavs" HorizontalAlignment="Left" Height="153" Margin="40,41,0,0" VerticalAlignment="Top" Width="100" SelectionMode="Multiple">
+            <ListBoxItem Name="lbFlavs_Vanilla" DataContext="Vanilla">Vanilla</ListBoxItem>
+            <ListBoxItem Name="lbFlavs_Chocolate" DataContext="Chocolate">Chocolate</ListBoxItem>
+            <ListBoxItem Name="lbFlavs_Strawberry" DataContext="Strawberry">Strawberry</ListBoxItem>
+            <ListBoxItem Name="lbFlavs_Peach" DataContext="Peach">Peach</ListBoxItem>
+        </ListBox>
+        <Button x:Name="btAdd" Content="Add =>" HorizontalAlignment="Left" Margin="153,99,0,0" VerticalAlignment="Top" Width="59" Click="btAdd_Click"/>
+        <Label x:Name="label_Copy" Content="Selected" HorizontalAlignment="Left" Margin="250,10,0,0" VerticalAlignment="Top" Width="55"/>
+        <ListBox x:Name="lbSelections" HorizontalAlignment="Left" Height="153" Margin="230,41,0,0" VerticalAlignment="Top" Width="100" SelectionMode="Multiple">
+        </ListBox>
+        <Button x:Name="btDeleteScoop" Content="Delete Scoop" HorizontalAlignment="Left" Margin="240,199,0,0" VerticalAlignment="Top" Width="75" Click="btDeleteScoop_Click"/>
+        <Button x:Name="btClearAll" Content="Clear All" HorizontalAlignment="Left" Margin="240,224,0,0" VerticalAlignment="Top" Width="75" Click="btClearAll_Click"/>
+        <Label x:Name="lblStatus" Content="...&#xD;&#xA;..." HorizontalAlignment="Left" Margin="10,256,0,0" VerticalAlignment="Top" Width="372" Height="23" FontSize="10"/>
+
+    </Grid>
+</Window>

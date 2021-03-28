@@ -1,0 +1,6 @@
+Buy Coca cola;2;2020-02-23;PENDING
+Buy a plane;5;2021-02-26;PENDING
+Buy new house;4;2021-03-22;PENDING
+Buy a bike;2;2021-03-27;DONE
+Buy a rocket;5;2021-04-23;PENDING
+Buy new car;3;2021-08-05;PENDING
