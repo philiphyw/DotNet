@@ -1,0 +1,55 @@
+﻿<Window x:Class="Day010FinalFlights.AddEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Day010FinalFlights"
+        mc:Ignorable="d"
+        Title="AddEditDialog" Height="400" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition  Height="40"></RowDefinition>
+            <RowDefinition  Height="40"></RowDefinition>
+            <RowDefinition  Height="40"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Grid.Column="1" Height="30">
+            <Label Content="On Date: " Width="80"/>
+            <DatePicker Name="dpOnDate"></DatePicker>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="1" Height="30">
+            <Label Content="From Code: " Width="80"/>
+            <TextBox x:Name="tbFromCode"></TextBox>
+        </DockPanel>
+
+        <DockPanel Grid.Row="2" Grid.Column="1" Height="30">
+            <Label Content="To Code: " Width="80"/>
+            <TextBox x:Name="tbToCode"></TextBox>
+        </DockPanel>
+        <ComboBox Name="comboFType" Grid.Row="3" Grid.Column="1" Height="30"></ComboBox>
+        <StackPanel Grid.Row="4" Grid.Column="1" Height="45">
+            <Slider x:Name="sliderPassengers" Maximum="200" SmallChange="1" LargeChange="10" Value="100" TickPlacement="BottomRight" IsSnapToTickEnabled="True"></Slider>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Passengers:" VerticalAlignment="Bottom" Height="26"/>
+                <TextBox Text="{Binding Value, ElementName=sliderPassengers, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" BorderThickness="0"   Width="50" Height="15" />
+            </StackPanel>
+           
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="1" Height="30" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Name="btCancel" Content="Cancel" IsCancel="True" Width="100"></Button>
+            <Label Width="50"/>
+            <Button Name="btSave" Click="btSave_Click" Width="100"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

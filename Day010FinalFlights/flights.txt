@@ -1,0 +1,8 @@
+2021-03-30;TDE;ASQ;International;150
+2021-03-30;ASDF;WSDF;International;110
+2021-04-09;ASDF;VBNM;International;100
+2021-04-09;QEWR;CNCVB;International;110
+2021-04-09;ASDF;XCB;International;100
+2021-04-10;TDS;AASE;International;200
+2021-04-10;XCV;ASDF;International;120
+2021-04-12;BGJ;SKHF;Private;2

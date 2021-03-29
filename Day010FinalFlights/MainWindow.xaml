@@ -1,0 +1,49 @@
+﻿<Window x:Class="Day010FinalFlights.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Day010FinalFlights"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="150" MinWidth="350" Height="300" Width="400" Closing="Window_Closing">
+
+    <Window.Resources>
+        <!--Thr right-click menu-->
+        <ContextMenu x:Key="cmLvFlights">
+            <MenuItem Header="Delete" Click="cmLvFlights_DeleteClick" />
+        </ContextMenu>
+    </Window.Resources>
+
+
+
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Name="miFile" Header="_File">
+                    <MenuItem Header="_Save Selection" Click="SaveSelection_Click"></MenuItem>
+                    <MenuItem Header="Exit" Click="miExit_Click"></MenuItem>
+                </MenuItem>
+
+                <MenuItem Name="miAddEdit" Header="_Add" Click="AddButton_Click">
+                </MenuItem>
+            </Menu>
+
+            <StatusBar DockPanel.Dock="Bottom">
+                <StatusBarItem>
+                    <TextBlock x:Name="tbStatus" Text="Welcome"></TextBlock>
+                </StatusBarItem>
+            </StatusBar>
+            <ListView x:Name="lvFlights" SelectionMode="Multiple" MouseDoubleClick="lvFlights_DoubleClick" PreviewMouseRightButtonDown="lvFlights_PreviewMouseRightButtonDown" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Date" Width="auto" DisplayMemberBinding="{Binding GetOnDate}" />
+                        <GridViewColumn Header="From" Width="auto" DisplayMemberBinding="{Binding FromCode}" />
+                        <GridViewColumn Header="To" Width="auto" DisplayMemberBinding="{Binding ToCode}" />
+                        <GridViewColumn Header="Type" Width="auto" DisplayMemberBinding="{Binding FType}" />
+                        <GridViewColumn Header="Passengers"  DisplayMemberBinding="{Binding Passengers}" />
+                    </GridView>
+                    </ListView.View>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</Window>
