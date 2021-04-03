@@ -1,0 +1,31 @@
+﻿<Window x:Class="Day010PeopleGuiEF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Day010PeopleGuiEF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="480" Width="720">
+    <Grid>
+        <ListView x:Name="lvPeople" HorizontalAlignment="Left" Height="394" Margin="10,10,0,0" VerticalAlignment="Top" Width="354" SelectionChanged="lvPeopleSelectionChange">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="30" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Age" Width="50" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Mail" Width="50" DisplayMemberBinding="{Binding Age}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="label" Content="Id:" Width="50"  HorizontalAlignment="Left" Margin="386,19,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblId" Content="-" HorizontalAlignment="Left" Margin="441,19,0,0" VerticalAlignment="Top" Width="261"/>
+        <Label x:Name="label_Copy" Content="Name:" Width="50"  HorizontalAlignment="Left" Margin="386,50,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="441,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
+        <Label x:Name="label_Copy1" Content="Age:" Width="50"  HorizontalAlignment="Left" Margin="386,81,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbAge" Text="0" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="441,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
+        <Button x:Name="btAdd" Click="btAdd_Click" Content="Add Person" HorizontalAlignment="Left" Margin="441,138,0,0" VerticalAlignment="Top" Width="261"/>
+        <Button x:Name="btUpdate" Click="btUpdate_Click" Content="Update Person" HorizontalAlignment="Left" Margin="441,174,0,0" VerticalAlignment="Top" Width="261"/>
+        <Button x:Name="btDelete" Click="btDelete_Click" Content="Delete Person" HorizontalAlignment="Left" Margin="441,210,0,0" VerticalAlignment="Top" Width="261"/>
+        <Label x:Name="lblStatus" Content="..." HorizontalAlignment="Left" Margin="10,413,0,0" VerticalAlignment="Top" Width="692"/>
+
+    </Grid>
+</Window>

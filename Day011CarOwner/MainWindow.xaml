@@ -1,0 +1,73 @@
+﻿<Window x:Class="Day011CarOwner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Day011CarOwner"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="600">
+
+    <Window.Resources>
+        <ContextMenu x:Key="cmOwnerImage">
+            <MenuItem Header="RemoveImage" Click="cmOwnerImageRemove_Click" />
+        </ContextMenu>
+        
+    </Window.Resources>
+    
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ListView Name ="lvOwners" Grid.Column="0" SelectionChanged="lvOwnersSelection_Change">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="20" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                    <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                    <GridViewColumn Header="Cars" Width="100" DisplayMemberBinding="{Binding CarsNumber}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!--lv2 grid for the input fields on the right side-->
+        <Grid x:Name="InputFieldGrid" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="3*"/>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Label Content="Id:" Grid.Row="0" Width="60" Height="30" HorizontalAlignment="Left" />
+            <Label Name="lblId" Content="-" Grid.Row="0"  Width="120" Height="30" />
+            <Label Content="Name:" Grid.Row="1" Width="60" Height="30" HorizontalAlignment="Left"/>
+            <TextBox Name="tbName"  Grid.Row="1"  Width="120" Height="30" />
+
+            <Button Name="btImage"  Click="btImage_Click" PreviewMouseRightButtonDown="btImage_RightClick" Margin="65,10" Grid.Row="2">
+                <Grid Width="120" Height="120" Grid.Row="2">
+                    <TextBlock x:Name="tbImage" Text="Click to pick picture" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <Image Name="imagePreview" Stretch="UniformToFill" />
+                </Grid>
+            </Button>
+
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <Button x:Name="btAdd" Width="60" Content="Add" Height="30" Margin="15,0,0,0" Click="AddButton_Click" />
+                <Button x:Name="btUpdate" Width="60" Content="Update" Height="30" Margin="20,0,0,0" Click="btUpdate_Click" />
+                <Button x:Name="btDelete" Width="60" Content="Delete" Height="30" Margin="20,0,15,0" Click="btDelete_Click" />
+            </StackPanel>
+
+            <Button x:Name="btManageCar" Click="ManageCarButton_Click" Width="160" Content="Manage Cars" Height="30" Grid.Row="4" />
+           
+            
+        </Grid>
+        <!--End of InputFieldGrid-->
+
+        <Label Name="lbStatus" Content="Welcome to the program" Grid.Row="1" />
+    </Grid>
+    <!--End of MainGrid-->
+</Window>
