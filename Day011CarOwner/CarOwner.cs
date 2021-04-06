@@ -10,6 +10,13 @@ namespace Day011CarOwner
 {
     public class Owner
     {
+
+        public Owner()
+        {
+            //ctx = new CarOwnerDbContext();
+            //CarsInGarage = ctx.Cars.Where(c => c.Owner.Id == this.Id).ToList<Car>();
+        }
+
         [NotMapped]
         CarOwnerDbContext ctx;
 
@@ -20,15 +27,41 @@ namespace Day011CarOwner
         public string Name { get; set; }
 
         public byte[] Image { get; set; }
-
-        ICollection<Car>CarsInGarage { get; set; }
+       
+        [NotMapped]
+        // lazy loading by default, we need to ask for earger loading
+        public virtual ICollection<Car> CarsInGarage { get; set; }
 
         [NotMapped]
        public int CarsNumber { get {
                 ctx = new CarOwnerDbContext();
                 int value = ctx.Cars.Where(c => c.Owner.Id == this.Id).Count();
-                return value; 
-            } }
+                return value;
+                //if (this.CarsInGarage == null || this.CarsInGarage.Count==0)
+                //{
+                //    return 0;
+                //}
+
+                //return CarsInGarage.Count();
+
+            }
+        }
+
+
+        public string toDataString()
+        {
+            string cars = "";
+            List<Car> carList = ctx.Cars.Where(car => car.Owner.Id == this.Id).Cast<Car>().ToList();
+            if (carList.Count > 0)
+            {
+                foreach (Car car in carList)
+                {
+                    cars += $"({car.Id})--{car.MakeModel}" + ",";
+                }
+                cars = cars.Substring(0, cars.Length - 1);
+            }
+            return $"{Id};{Name};{cars}";
+        }
     }
 
 

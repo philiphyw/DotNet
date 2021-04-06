@@ -11,7 +11,10 @@
         <ContextMenu x:Key="cmOwnerImage">
             <MenuItem Header="RemoveImage" Click="cmOwnerImageRemove_Click" />
         </ContextMenu>
-        
+
+        <ContextMenu x:Key="cmLvOwners">
+            <MenuItem Header="Export Selection" Click="cmLvOwnersExportSelection_Click" />
+        </ContextMenu>
     </Window.Resources>
     
     <Grid x:Name="MainGrid">
@@ -23,7 +26,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Name ="lvOwners" Grid.Column="0" SelectionChanged="lvOwnersSelection_Change">
+        <ListView Name ="lvOwners" Grid.Column="0" SelectionChanged="lvOwnersSelection_Change" PreviewMouseRightButtonDown="lvOwners_RightClick">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="20" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
