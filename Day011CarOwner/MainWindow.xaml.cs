@@ -271,8 +271,8 @@ namespace Day011CarOwner
             }
 
             
-           var selOwnerList = lvOwners.SelectedItems.Cast<Owner>().Select(o => o.toDataString()).ToList();
-            List<string> dataStringList = new List<string>();    
+           var selOwnerList = lvOwners.SelectedItems.Cast<Owner>().Select(o => o.ToString()).ToList();
+            List<string> ToStringList = new List<string>();    
             using (var writer = new StreamWriter(@"..\\..\\selected owners.csv"))
             using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
             {

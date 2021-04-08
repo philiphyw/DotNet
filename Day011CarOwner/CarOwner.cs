@@ -13,12 +13,11 @@ namespace Day011CarOwner
 
         public Owner()
         {
+			CarsInGarage = new List<Car>();
             //ctx = new CarOwnerDbContext();
             //CarsInGarage = ctx.Cars.Where(c => c.Owner.Id == this.Id).ToList<Car>();
         }
 
-        [NotMapped]
-        CarOwnerDbContext ctx;
 
         [Key]
         public int Id { get; set; }
@@ -27,12 +26,18 @@ namespace Day011CarOwner
         public string Name { get; set; }
 
         public byte[] Image { get; set; }
-       
-        [NotMapped]
-        // lazy loading by default, we need to ask for earger loading
-        public virtual ICollection<Car> CarsInGarage { get; set; }
 
         [NotMapped]
+        // lazy loading by default, we need to ask for earger loading
+        public virtual List<Car> CarsInGarage { get; set; } 
+
+        [NotMapped]
+		 public int CarsNumber { get => CarsInGarage.Count(); }
+		/*
+		 [NotMapped]
+        CarOwnerDbContext ctx;
+		 [NotMapped]
+		
        public int CarsNumber { get {
                 ctx = new CarOwnerDbContext();
                 int value = ctx.Cars.Where(c => c.Owner.Id == this.Id).Count();
@@ -46,8 +51,14 @@ namespace Day011CarOwner
 
             }
         }
+		*/
+		public override string ToString()
+		{
+			return $"{Id},{Name}";
+			
+		}
 
-
+        /*
         public string toDataString()
         {
             string cars = "";
@@ -62,6 +73,7 @@ namespace Day011CarOwner
             }
             return $"{Id};{Name};{cars}";
         }
+        */
     }
 
 
@@ -72,8 +84,14 @@ namespace Day011CarOwner
         [Required]
         [StringLength(30)]
         public string MakeModel { get; set; }
-        [Required]
-        public Owner Owner { get; set; }
+		public int OwnerId{get; set;}
+        
+        public virtual Owner Owner { get; set; }
+		
+		public override string ToString()
+        {
+            return $"{Id}, {MakeModel}";
+        }
 
     }
 }
